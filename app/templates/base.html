@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
     <head>
       {% if title %}
@@ -20,3 +21,30 @@
         {% block content %}{% endblock %}
     </body>
 </html>
+=======
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - Microblog about Films</title>
+      {% else %}
+      <title>Welcome to my microblog about films</title>
+      {% endif %}
+    </head>
+    <body style="background-color: #c7b39b;">
+        <div>Microblog:
+          <a href="/index">Home</a>
+          <a href="/login">Login</a></div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
+>>>>>>> 85d6b8ea0501ed3d4ece54d28aa109f945ee3ccb
