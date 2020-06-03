@@ -1,11 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<h1> Приветствую тебя , {{ user.username }}</h1>
-	<h2> Самые популярные комментарии этой недели:</h2>
-	{% for post in posts %}
-	<div>
-		<p>{{post.author.username}} сказал <b>{{post.body}}</b></p>
-	</div>
-    {% endfor %}
+	<h1> Приветствую тебя , {{ current_user.username }}!</h1>
+	{% if form %}
+	<form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.post.label }}<br>
+            {{ form.post(cols=32, rows=4) }}<br>
+            {% for error in form.post.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+	{% endif %}
+	
 {% endblock %}

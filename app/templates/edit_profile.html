@@ -18,6 +18,17 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
-        <p>{{ form.submit() }}</p>
+        <p>
+            {{ form.language.label }}<br>
+            {{ form.language(cols=10, rows=4) }}<br>
+            {% for error in form.language.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        {% if current_user.is_anonymous %}
+        <p href="{{ url_for('index') }}">{{ form.submit() }}</p>
+        {% else %}
+        <p href="{{ url_for('user', username=current_user.username) }}">{{ form.submit() }}</p>
+        {% endif %}
     </form>
 {% endblock %}

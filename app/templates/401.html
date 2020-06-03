@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 align="center" >Уважаемый пользователь ты похоже не залогинился</h1>
+    <h2 align="center" >Чтобы продолжить перейди 
+        на страницу регистрации/входа</h2>
+    <p align="center" ><a href="{{ url_for('login') }}">Переход на страницу регистрации/входа</a></p>
+{% endblock %}

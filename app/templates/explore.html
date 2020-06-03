@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <a href="{{ English }}">English</a>
+        <a href="{{ Russian }}">Russian</a>
+        <a href="{{ Spanish }}">Spanish</a>
+        <a href="{{ German }}">German</a>
+    </div>
+    <h2> Самые популярные комментарии этой недели:</h2>
+    {% for post in posts %}
+        {% include '_post.html' %}
+    {% endfor %}
+    {% if prev_url %}
+    <a href="{{ prev_url }}">Новые записи</a>
+    {% endif %}
+    {% if next_url %}
+    <a href="{{ next_url }}">Предыдущие записи</a>
+    {% endif %}
+{% endblock %}

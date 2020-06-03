@@ -5,10 +5,12 @@
       {% else %}
       <title>Welcome to my microblog about films</title>
       {% endif %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     </head>
     <body style="background-color: #c7b39b;">
-        <div>Microblog:
+        <div style="font-family:Georgia, 'Times New Roman', Times, serif">Microblog:
           <a href="{{ url_for('index') }}">Home</a>
+          <a href="{{ url_for('explore') }}">Поиск</a>
           {% if current_user.is_anonymous %}
           <a href="{{ url_for('login') }}">Login</a>
           {% else %}
